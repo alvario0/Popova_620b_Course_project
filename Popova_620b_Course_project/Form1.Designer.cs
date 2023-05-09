@@ -39,7 +39,7 @@ namespace Popova_620b_Course_project
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(302, 97);
+            this.label1.Location = new System.Drawing.Point(302, 103);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 0;
@@ -47,7 +47,7 @@ namespace Popova_620b_Course_project
             // 
             // bStart
             // 
-            this.bStart.Location = new System.Drawing.Point(305, 352);
+            this.bStart.Location = new System.Drawing.Point(293, 350);
             this.bStart.Name = "bStart";
             this.bStart.Size = new System.Drawing.Size(75, 23);
             this.bStart.TabIndex = 1;
@@ -58,7 +58,7 @@ namespace Popova_620b_Course_project
             // tbInput
             // 
             this.tbInput.Enabled = false;
-            this.tbInput.Location = new System.Drawing.Point(305, 201);
+            this.tbInput.Location = new System.Drawing.Point(280, 200);
             this.tbInput.Name = "tbInput";
             this.tbInput.Size = new System.Drawing.Size(100, 22);
             this.tbInput.TabIndex = 2;
