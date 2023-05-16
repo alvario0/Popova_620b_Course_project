@@ -25,7 +25,6 @@ namespace Popova_620b_Course_project
             MessageBox.Show("Минуло 25 секунд", "Увага");// Виведення повідомлення
             tClock.Start();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             MajorObject = new MajorWork();
@@ -46,6 +45,7 @@ namespace Popova_620b_Course_project
                 tClock.Start();
                 bStart.Text = "Стоп"; // зміна тексту на кнопці на "Стоп"
                 this.Mode = false;
+                пускToolStripMenuItem.Text = "Стоп";
             }
             else
             {
@@ -57,6 +57,7 @@ namespace Popova_620b_Course_project
                 MajorObject.Write(tbInput.Text);// Запис даних у об'єкт
                 MajorObject.Task();// Обробка даних
                 label1.Text = MajorObject.Read();//
+                пускToolStripMenuItem.Text = "Старт";
             }
         }
 
@@ -82,6 +83,54 @@ namespace Popova_620b_Course_project
             string s;
             s = (System.DateTime.Now - MajorObject.GetTime()).ToString();
             MessageBox.Show(s, "Час роботи програми");
+        }
+
+        private void вихідToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void проПрограмуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About A = new About();
+            A.ShowDialog();
+        }
+
+        private void зберегтиЯкToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sfdSave.ShowDialog() == DialogResult.OK)// Виклик діалогового вікна збереження
+{
+                MessageBox.Show(sfdSave.FileName);
+            }
+        }
+
+        private void відкритиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ofdOpen.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show(ofdOpen.FileName);
+            }
+        }
+
+        private void проНакопичувачіToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] disks = System.IO.Directory.GetLogicalDrives();
+string disk = "";
+            for (int i=0; i < disks.Length; i++)
+            {
+                try
+                {
+                    System.IO.DriveInfo D = new System.IO.DriveInfo(disks[i]);
+                    disk += D.Name + "-" + D.TotalSize.ToString() + "-" + D.TotalFreeSpace.ToString()
+                    + (char)13;// змінній присвоюється ім’я диска, загальна кількість місця и вільне
+                }
+                catch
+                {
+                    disk+=disks[i] + "- не готовий" + (char)13;
+                   
+}
+                MessageBox.Show(disk, "Накопичувачі");
+            }
         }
     }
 }
