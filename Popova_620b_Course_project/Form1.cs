@@ -29,6 +29,7 @@ namespace Popova_620b_Course_project
         {
             MajorObject = new MajorWork();
             MajorObject.SetTime();
+            MajorObject.Modify = false;// заборона запису
             About A = new About();
             A.tAbout.Start();
             A.ShowDialog(); // відображення діалогового вікна About
@@ -96,15 +97,16 @@ namespace Popova_620b_Course_project
             A.ShowDialog();
         }
 
-        private void зберегтиЯкToolStripMenuItem_Click(object sender, EventArgs e)
+        private void зберегтіЯкToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (sfdSave.ShowDialog() == DialogResult.OK)// Виклик діалогового вікна збереження
-{
-                MessageBox.Show(sfdSave.FileName);
+            if (sfdSave.ShowDialog() == DialogResult.OK)
+            {
+                MajorObject.WriteSaveFileName(sfdSave.FileName); // написання імені файлу
+                MajorObject.SaveToFile();
             }
         }
 
-        private void відкритиToolStripMenuItem_Click(object sender, EventArgs e)
+                private void відкритиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (ofdOpen.ShowDialog() == DialogResult.OK)
             {
@@ -115,7 +117,7 @@ namespace Popova_620b_Course_project
         private void проНакопичувачіToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string[] disks = System.IO.Directory.GetLogicalDrives();
-string disk = "";
+            string disk = "";
             for (int i=0; i < disks.Length; i++)
             {
                 try
