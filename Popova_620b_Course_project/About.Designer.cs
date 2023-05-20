@@ -33,6 +33,8 @@ namespace Popova_620b_Course_project
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tAbout = new System.Windows.Forms.Timer(this.components);
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -46,9 +48,9 @@ namespace Popova_620b_Course_project
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(290, 326);
+            this.button1.Location = new System.Drawing.Point(290, 306);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 23);
+            this.button1.Size = new System.Drawing.Size(114, 43);
             this.button1.TabIndex = 1;
             this.button1.Text = "Закрити";
             this.button1.UseVisualStyleBackColor = true;
@@ -59,11 +61,25 @@ namespace Popova_620b_Course_project
             this.tAbout.Interval = 10000;
             this.tAbout.Tick += new System.EventHandler(this.tAbout_Tick);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(261, 387);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(172, 35);
+            this.progressBar1.TabIndex = 2;
+            this.progressBar1.Value = 100;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "About";
@@ -78,5 +94,7 @@ namespace Popova_620b_Course_project
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.Timer tAbout;
+        public System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
