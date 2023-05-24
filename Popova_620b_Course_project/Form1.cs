@@ -77,7 +77,6 @@ namespace Popova_620b_Course_project
             About A = new About();
             A.tAbout.Start();
             A.ShowDialog(); // відображення діалогового вікна About
-            MajorObject = new MajorWork();
             this.Mode = true;
 
             toolTip1.SetToolTip(bSearch, "Натисніть на кнопку для пошуку");
@@ -181,8 +180,8 @@ namespace Popova_620b_Course_project
                 try
                 {
                     System.IO.DriveInfo D = new System.IO.DriveInfo(disks[i]);
-                    disk += D.Name + "-" + D.TotalSize.ToString() + "-" + D.TotalFreeSpace.ToString()
-                    + (char)13;// змінній присвоюється ім’я диска, загальна кількість місця и вільне
+                    disk += D.Name + "-" + (D.TotalSize /( 1024 * 1024* 1024)) /*.ToString() + "-" + D.TotalFreeSpace.ToString()*/
+                    +"GB-"+ (D.TotalFreeSpace / (1024* 1024 * 1024)).ToString() +"GB"+ (char)13;// змінній присвоюється ім’я диска, загальна кількість місця и вільне
                 }
                 catch
                 {
